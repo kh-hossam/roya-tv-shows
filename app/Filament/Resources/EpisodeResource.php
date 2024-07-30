@@ -27,19 +27,27 @@ class EpisodeResource extends Resource
                     ->label('Series')
                     ->relationship('series', 'title')
                     ->required(),
+
                 Forms\Components\TextInput::make('title')
+                    ->maxLength(255)
                     ->required(),
+
                 Forms\Components\Textarea::make('description')
                     ->required(),
+
                 Forms\Components\TextInput::make('duration')
                     ->required()
                     ->numeric(),
+
                 Forms\Components\DateTimePicker::make('airing_time')
                     ->required(),
+
                 Forms\Components\FileUpload::make('thumbnail')
                     ->label('Thumbnail')
                     ->image()
+                    ->imageEditor()
                     ->required(),
+
                 Forms\Components\FileUpload::make('video_content')
                     ->label('Video Content')
                     ->required(),
@@ -52,10 +60,14 @@ class EpisodeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('series.title')
                     ->label('Series'),
+
                 Tables\Columns\TextColumn::make('title'),
+
                 Tables\Columns\TextColumn::make('description')
                     ->limit(50),
+
                 Tables\Columns\TextColumn::make('duration'),
+
                 Tables\Columns\TextColumn::make('airing_time')
                     ->label('Airing Time')
                     ->dateTime(),
