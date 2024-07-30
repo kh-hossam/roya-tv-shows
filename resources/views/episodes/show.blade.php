@@ -7,9 +7,11 @@
             <p>{{ $episode->description }}</p>
             <p><small class="text-muted">Duration: {{ $episode->duration }} mins</small></p>
             <p><small class="text-muted">Airing Time: {{ $episode->airing_time }}</small></p>
-            <img src="{{ $episode->thumbnail }}" class="img-fluid mb-4" alt="Thumbnail">
+            <img src="{{ Str::isUrl($episode->thumbnail) ? $episode->thumbnail : asset('storage/' . $episode->thumbnail) }}"
+                class="img-fluid mb-4" alt="Thumbnail">
             <video controls class="w-100">
-                <source src="{{ $episode->video_content }}" type="video/mp4">
+                <source src="{{ Str::isUrl($episode->video_content) ? $episode->video_content :
+                    asset('storage/' . $episode->video_content) }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
