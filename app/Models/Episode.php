@@ -9,7 +9,7 @@ class Episode extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['series_id', 'title', 'description', 'duration', 'airing_time', 'thumbnail', 'video_asset'];
+    protected $fillable = ['series_id', 'title', 'description', 'duration', 'airing_time', 'thumbnail', 'video_content'];
 
     public function series()
     {
