@@ -6,14 +6,7 @@
             <h1 class="my-4">{{ $episode->title }}</h1>
             <p>{{ $episode->description }}</p>
             <p><small class="text-muted">Duration: {{ $episode->duration }} mins</small></p>
-            <p><small class="text-muted">Airing Time: {{ $episode->airing_time }}</small></p>
-            <img src="{{ Str::isUrl($episode->thumbnail) ? $episode->thumbnail : asset('storage/' . $episode->thumbnail) }}"
-                class="img-fluid mb-4" alt="Thumbnail">
-            <video controls class="w-100">
-                <source src="{{ Str::isUrl($episode->video_content) ? $episode->video_content :
-                    asset('storage/' . $episode->video_content) }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <p><small class="text-muted">Airing Time: {{ $episode->airing_time->format('l jS \\of F Y @ h:iA') }}</small></p>
 
             @if($isLiked)
                 <form action="{{ route('episodes.dislike', $episode) }}" method="POST" class="mt-4">
@@ -26,6 +19,14 @@
                     <button type="submit" class="btn btn-primary">Like</button>
                 </form>
             @endif
+
+            <img src="{{ Str::isUrl($episode->thumbnail) ? $episode->thumbnail : asset('storage/' . $episode->thumbnail) }}"
+                class="img-fluid mb-4 mt-4" alt="Thumbnail">
+            <video controls class="w-100">
+                <source src="{{ Str::isUrl($episode->video_content) ? $episode->video_content :
+                    asset('storage/' . $episode->video_content) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 @endsection

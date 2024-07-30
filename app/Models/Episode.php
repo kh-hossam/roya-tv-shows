@@ -11,6 +11,10 @@ class Episode extends Model
 
     protected $fillable = ['series_id', 'title', 'description', 'duration', 'airing_time', 'thumbnail', 'video_content'];
 
+    protected $casts = [
+        'airing_time' => 'datetime',
+    ];
+
     public function series()
     {
         return $this->belongsTo(Series::class);
