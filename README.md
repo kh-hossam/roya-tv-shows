@@ -127,6 +127,12 @@ php artisan serve
 
 ## Accessing the Application
 
+### Website
+
+You can access the main website through the following URL:
+
+[http://localhost:8000](http://localhost:8000)
+
 ### Admin Panel
 
 You can access the admin panel through the following URL:
@@ -138,12 +144,6 @@ Use the following credentials to log in:
 - **Username:** admin@admin.com
 
 - **Password:** password
-
-### Website
-
-You can access the main website through the following URL:
-
-[http://localhost:8000](http://localhost:8000)
 
 ## Features
 
