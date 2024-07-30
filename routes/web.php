@@ -18,3 +18,7 @@ Route::post('series/{series}/unfollow', [SeriesController::class, 'unfollow'])->
 Route::get('episodes/{episode}', [EpisodeController::class, 'show'])->name('episodes.show');
 Route::post('episodes/{episode}/like', [EpisodeController::class, 'like'])->name('episodes.like');
 Route::post('episodes/{episode}/dislike', [EpisodeController::class, 'dislike'])->name('episodes.dislike');
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
