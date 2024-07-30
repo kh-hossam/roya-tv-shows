@@ -45,9 +45,7 @@ cd roya-tv-shows
 
 composer install
 
-npm install
-
-npm run dev
+npm install && npm run build
 
 ```
 
@@ -110,6 +108,20 @@ Run the following command to optimize Filament admin panel performance:
 ```sh
 
 php artisan icons:cache
+
+php artisan filament:cache-components
+
+```
+
+### Run the Development Server
+
+make storage:link and Start the Laravel development server:
+
+```sh
+
+php artisan storage:link
+
+php artisan serve
 
 ```
 
